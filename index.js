@@ -5,6 +5,7 @@ const port = 3000;
 import artistas from "./controllers/artistas.js";
 import albumes from "./controllers/albumes.js";
 import canciones from "./controllers/canciones.js";
+import playlists from "./controllers/playlists.js";
 
 app.use(express.json());
 
