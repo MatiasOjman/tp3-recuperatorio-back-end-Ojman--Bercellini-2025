@@ -12,7 +12,7 @@ const getPlaylists = async (_, res) => {
 };
 
 const createPlaylist = async (req, res) => {
-   try{ let playlist = await query(`insert into Playlist (playlist_id,cancion_id) values ($1,$2,$3, $4) returning *`,[req.body.playlist_id,req.body.cancion_id, 0])
+   try{ let playlist = await query(`insert into Playlist (playlist_id,cancion_id) values ($1,$2) returning *`,[req.body.playlist_id,req.body.cancion_id, 0])
     res.status(201).send(playlist.rows[0])
     }
     catch (error) {
