@@ -1,3 +1,5 @@
+import { query } from "../db.js";
+
 const getPlaylists = async (_, res) => {
     
   try {
@@ -10,7 +12,7 @@ const getPlaylists = async (_, res) => {
 };
 
 const createPlaylist = async (req, res) => {
-   try{ let playlist = await query(`insert into playlists (id,nombre) values ($1,$2,$3, $4) returning *`,[req.body.nombre,req.body.id, 0])
+   try{ let playlist = await query(`insert into playlist (id,nombre) values ($1,$2,$3, $4) returning *`,[req.body.nombre,req.body.id, 0])
     res.status(201).send(playlist.rows[0])
     }
     catch (error) {
@@ -32,3 +34,8 @@ const deletePlaylist = async (req, res) => {
 };
 
 
+export default {
+    getPlaylists,
+    createPlaylist,
+    deletePlaylist
+};
