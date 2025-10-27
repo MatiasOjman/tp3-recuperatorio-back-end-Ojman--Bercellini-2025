@@ -23,7 +23,7 @@ const createPlaylist = async (req, res) => {
 
 const deletePlaylist = async (req, res) => {
     try{
-         let playlist = await query(`delete from "Playlist" where id = $1`, [req.params.playlist_id])
+         let playlist = await query(`delete from "Playlist" where playlist_id = $1`, [req.params.playlist_id])
     res.status(204).send(playlist)
     }
     catch (error) {

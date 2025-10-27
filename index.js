@@ -54,7 +54,7 @@ app.delete("/canciones/:id", canciones.deleteCancion);
 
 app.get("/playlists", playlists.getPlaylists);
 app.post("/playlists", playlists.createPlaylist);
-app.delete("/playlists/:id", playlists.deletePlaylist);
+app.delete("/playlists/:playlist_id", playlists.deletePlaylist);
 
 
 
