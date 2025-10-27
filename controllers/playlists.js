@@ -3,7 +3,7 @@ import { query } from "../db.js";
 const getPlaylists = async (_, res) => {
     
   try {
-      let playlists = await query(`select playlist.´laylist_id, playlists.cancion_id`)
+      let playlists = await query(`select cancion_id,Playlist_id from "Playlist"`)
     res.send(playlists.rows)
     } catch (error) {
         console.error("Error al obtener las playlists:", error);
@@ -12,7 +12,7 @@ const getPlaylists = async (_, res) => {
 };
 
 const createPlaylist = async (req, res) => {
-   try{ let playlist = await query(`insert into Playlist (playlist_id,cancion_id) values ($1,$2) returning *`,[req.body.playlist_id,req.body.cancion_id, 0])
+   try{ let playlist = await query(`insert into "Playlist" (playlist_id,cancion_id) values ($1,$2) returning *`,[req.body.playlist_id,req.body.cancion_id])
     res.status(201).send(playlist.rows[0])
     }
     catch (error) {
@@ -23,7 +23,7 @@ const createPlaylist = async (req, res) => {
 
 const deletePlaylist = async (req, res) => {
     try{
-         let playlist = await query(`delete from Playlist where id = $1`, [req.params.playlist_id])
+         let playlist = await query(`delete from "Playlist" where id = $1`, [req.params.playlist_id])
     res.status(204).send(playlist)
     }
     catch (error) {
