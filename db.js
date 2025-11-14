@@ -2,9 +2,9 @@ import pkg from "pg";
 const { Pool } = pkg;
 
 export const pool = new Pool({
-    host: "ep-holy-shadow-achnhgpv-pooler.sa-east-1.aws.neon.tech",
+    host: "ep-super-pond-a4yuck6k-pooler.us-east-1.aws.neon.tech",
     user: "neondb_owner",
-    password: "npg_WexYhrH3d1pl",
+    password: "npg_PBDs3UtKNT9M",
     database: "neondb",
     port: 5432,
     ssl: {
