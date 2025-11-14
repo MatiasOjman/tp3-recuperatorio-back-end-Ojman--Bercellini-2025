@@ -52,7 +52,7 @@ app.delete("/canciones/:id", canciones.deleteCancion);
 // canciones.getCancion;
 // ...
 
-app.get("/playlists", playlists.getPlaylists);
+app.get("/playlists/:id", playlists.getPlaylists);
 app.post("/playlists", playlists.createPlaylist);
 app.delete("/playlists/:playlist_id", playlists.deletePlaylist);
 

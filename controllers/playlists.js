@@ -1,10 +1,9 @@
 import { query } from "../db.js";
 
-const getPlaylists = async (_, res) => {
-    
+const getPlaylists = async (req, res) => {
   try {
-      let playlists = await query(`select cancion_id,Playlist_id from "Playlist"`)
-    res.send(playlists.rows)
+      let playlists = await query(`select cancion_id,playlist_id from "Playlist" where playlist_id=$1`,[req.params.id])
+      res.send(playlists.rows)
     } catch (error) {
         console.error("Error al obtener las playlists:", error);
         res.status(500).send("Error al obtener las playlists");
